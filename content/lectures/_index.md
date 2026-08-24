@@ -205,9 +205,6 @@ Chap. 2 of [Hefferon](http://joshua.smcvt.edu/linearalgebra/) (as needed)
 **Exercises:**
 6.1, 6.4, 6.6
 
-#### Nov 9
-Midterm II
-
 #### Nov 10 -- Nov 12
 Designing controllers.
 Open- and closed-loop controllers.
@@ -230,7 +227,8 @@ Sect. 6.3, 9.1
 **Exercises:**
 9.2
 
-
+#### Nov 16
+Midterm II
 
 #### Nov 17 -- Nov 19
 Zeno executions, states and processes.
