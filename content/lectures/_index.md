@@ -10,8 +10,6 @@ reading assignments, and exercises.
 Chapters and sections in readings are from the textbook, and 
 so are the exercises.
 
-<div style="color: #D3D3D3;">
-
 #### Aug 25 -- Aug 27
 
 Course introduction and administration.
@@ -27,6 +25,8 @@ The Synchronous Model [Part I](chap2a.pdf)
 [Syllabus](../syllabus),
 Chap. 1,
 Sect. 2.1
+
+<div style="color: #D3D3D3;">
 
 #### Sep 1 -- Sep 3
 The Synchronous Model.
@@ -205,7 +205,10 @@ Chap. 2 of [Hefferon](http://joshua.smcvt.edu/linearalgebra/) (as needed)
 **Exercises:**
 6.1, 6.4, 6.6
 
-#### Nov 17 -- Nov 19
+#### Nov 9
+Midterm II
+
+#### Nov 10 -- Nov 12
 Designing controllers.
 Open- and closed-loop controllers.
 Stabilizing controllers.
@@ -227,10 +230,9 @@ Sect. 6.3, 9.1
 **Exercises:**
 9.2
 
-#### Nov 9
-Midterm II
 
-#### Nov 10 -- Nov 12
+
+#### Nov 17 -- Nov 19
 Zeno executions, states and processes.
 Zeno processes and reachability.
 Stability of hybrid systems.
@@ -246,17 +248,17 @@ Sect. 9.1, 9.2
 9.5
 
 #### Nov 24 -- Nov 26
-Thanksgiving break.
+No classes. Thanksgiving break.
 
 #### Dec 1 -- Dec 3
-Modeling and checking reactive systems with the Kind 2 model checker.
+<!-- Modeling and checking reactive systems with the Kind 2 model checker.
 Modeling examples from the textbook in Kind 2.
 
 **Notes:**
 Kind 2 examples: [Miscellaneous](https://kind.cs.uiowa.edu/app/#examples%2FAlur), [Railroad Controller](https://kind.cs.uiowa.edu/app/#examples%2FRailroadController), [Car Cruise Controller](https://kind.cs.uiowa.edu/app/#examples%2FCar)
 <br>
 **Exercises:**
-Experiment with Kind 2 examples [online](https://kind.cs.uiowa.edu/app/)
+Experiment with Kind 2 examples [online](https://kind.cs.uiowa.edu/app/) -->
 
 #### Dec 8 -- Dec 10
 
