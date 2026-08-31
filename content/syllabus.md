@@ -150,7 +150,7 @@ the scheduled drop-in hours.
 
 - **Phone:** 319-335-0735
 - **Email:** xiang-liu@uiowa.edu
-- **Office location:** 314 [MLH](https://www.facilities.uiowa.edu/named-building/maclean-hall)
+- **Office location:** 201N [MLH](https://www.facilities.uiowa.edu/named-building/maclean-hall)
 
 ### Student Drop-in Hours
 
@@ -159,7 +159,7 @@ the scheduled drop-in hours.
 | Tuesday | 10:30am - 12:00pm |
 | Friday | 1:00pm - 2:30pm |
 
-The TA is also available by appointment if you are unable to attend 
+The TA is also available by appointment if you are unable to attend
 the scheduled drop-in hours.
 
 ## Departmental Executive Officer (DEO)

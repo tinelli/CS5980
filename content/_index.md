@@ -26,10 +26,11 @@ Zoom [884-316-858](https://uiowa.zoom.us/j/884316858)
 
 All scheduled hours are at the office _and_ on Zoom.
 
-**Teaching Assistant:** 
-[Xiang Liu](https://cs.uiowa.edu/people/xiang-liu), 
-Office: 314 [MacLean Hall](https://www.facilities.uiowa.edu/named-building/maclean-hall),
-Zoom [[TBA]](https://uiowa.zoom.us/j/xxxx)
+**Teaching Assistant:**
+[Xiang Liu](https://cs.uiowa.edu/people/xiang-liu),
+Office: 201N [MacLean Hall](https://www.facilities.uiowa.edu/named-building/maclean-hall)
+<!-- ,
+Zoom [[TBA]](https://uiowa.zoom.us/j/xxxx) -->
 
 - Tue 10:30-12:00, Frid 1:00-2:30 and by appointment.
 
