@@ -16,14 +16,29 @@ Note: in the settings, make sure to set the Pages deployment source to **GitHub 
 
 [Run the workflow manually](https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow) if it's not triggered automatically.
 
-## Local Development
+# Local Development
 
-# Change directory
+## Install Go 
+
+(Only once.)
+
+Get installer from [here](https://go.dev/dl/).
+
+## Install Hugo
+
+(Only once.)
+
+```shell
+brew install hugo
+```
+
+
+## Change directory
 ```shell
 cd ~/www/Courses
 ```
 
-# Start the server
+## Start the server
 ```shell
 # only once
 hugo mod tidy
