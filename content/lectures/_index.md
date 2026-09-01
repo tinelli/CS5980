@@ -26,7 +26,6 @@ The Synchronous Model [Part I](chap2a.pdf)
 Chap. 1,
 Sect. 2.1
 
-<div style="color: #D3D3D3;">
 
 #### Sep 1 -- Sep 3
 The Synchronous Model.
@@ -46,6 +45,8 @@ Sect. 2.1 - 2.4
 <br>
 **Exercises:**
 2.1, 2.2, 2.4, 2.5, 2.7, 2.9, 2.12, 2.13
+
+<div style="color: #D3D3D3;">
 
 #### Sep 8 -- Sep 10
 Parallel composition of components.
