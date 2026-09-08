@@ -46,22 +46,20 @@ Sect. 2.1 - 2.4
 **Exercises:**
 2.1, 2.2, 2.4, 2.5, 2.7, 2.9, 2.12, 2.13
 
-<div style="color: #D3D3D3;">
 
 #### Sep 8 -- Sep 10
-Parallel composition of components.
 Designing synchronous systems.
 Bottom-up vs. top-down design.
 Synchronous networks.
 
 **Notes:**
-The Synchronous Model [Part II](chap2b.pdf) and [Part III](chap2c.pdf)
+The Synchronous Model [Part III](chap2c.pdf)
 <br>
 **Readings:**
-Sect. 2.3–2.4
-<br>
 **Exercises:**
 2.6, 2.15, 2.17
+
+<div style="color: #D3D3D3;">
 
 #### Sep 15 -- Sep 17
 Safety Requirements.
