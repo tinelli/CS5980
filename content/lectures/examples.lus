@@ -1,0 +1,260 @@
+
+
+----------------------
+-- Figure 2.1
+----------------------
+(* IntDelay: a one-step delay node for integers.  
+   The output is the previous input, with an initial value of 0.
+*)
+node IntDelay(inp: int) returns (out: int) ;
+  var x: int ;
+let
+  out = x ;
+  x = 0 -> pre inp ;
+tel
+
+(* Delay: a generic delay node for any type T.  
+   The output is the previous input, with an arbitrary initial value 
+   of type T.
+*)
+node Delay<T>(inp: T) returns (out: T) ;
+  var x0, x: T ;
+let
+  x0 = any@<T>;
+  out = x ;
+  x = x0 -> pre inp ;
+tel
+
+
+node DiffSquare(in1, in2: int) returns (out: int) ;
+let
+  out = in1 * in1 - in2 * in2 ;
+tel
+
+node DiffSquare1(i1, i2: int) returns (out: int) ;
+  var x, y: int ;
+let
+  x = i1 + i2 ;
+  y = i1 - i2 ;
+  out = x * y;
+
+  -- nodeDiffSquare1 is equivalent to nodeDiffSquare 
+  -- but it uses fewer multiplications.
+  check out = DiffSquare(i1, i2) ;
+tel
+
+
+(*
+        +----------------------+
+        | bool x := 0 ; y := 0 |
+        +----------------------+
+        | bool in              |
+        | if y then            |  
+bool in |   out := x           | bool out
+  ----->| else                 |------>
+        |   out := 0 ;         |
+        | x := in ;            |
+        | y := ¬y              |
+        +----------------------+
+*)
+node Mistery(inp: bool) returns (out: bool) ;
+  var x, y: bool ;
+let
+  x = false -> inp ;
+  y = false -> not pre y ;
+  out = if y then x else false;
+tel
+
+(*
+  Alternative implementation of the Mistery node using an 
+  if ... then ... else ... fi statement instead of a conditional expression.
+*)
+node Mistery1(inp: bool) returns (out: bool) ;
+  var x, y: bool ;
+let
+  x = false -> inp ;
+  y = false -> not pre y ;
+  if y then 
+    out = x ;
+  else 
+    out = false ;
+  fi
+  -- the if statement above is equivalent to the conditional expression 
+  -- in node Mistery
+tel
+
+----------------------
+-- Figure 2.2
+----------------------
+(*      
+  A simple switch that can be in one of two states: on or off.
+  The switch changes state based on the press input and a counter x.
+ 
+             *----*                                     *----*
+   (~press)  |    |     (~press & x < 4) -> x := x + 1  |    |
+             |    v                                     |    v
+            +-------+            (press)               +------+
+int x := 0  |       |--------------------------------->|      |
+  --------> |  off  |    (press | x >= 4) -> x := 0    |  on  |
+            |       |<---------------------------------|      |
+            +-------+                                  +------+
+*)
+
+type status = enum {on, off};
+
+(*
+  Idiomatic definition of the switch component above in Lustre.
+*)
+node Switch(press: bool) returns (mode: status) ;
+  var x: int ;
+let
+  mode = off -> if pre mode = off 
+                then (if press then on else off)
+                else (if press or pre x >= 4 then off else on) ;
+  x = 0 -> if pre mode = off 
+           then pre x
+           else (if press or pre x >= 4 then 0 else pre x + 1) ;
+
+  check "P1" 0 <= x;
+  check "P2" x <= 4 ;
+  check "P3" x <> 0 => mode = on ;
+  check "P4" true -> x <> 0 => x > pre x ;
+tel
+
+(*
+  Alternative implementation of the switch component based
+  on a more explicit state machine representation.
+*)
+node Switch1(press: bool) returns (mode: status);
+  var x: int ;
+let
+  if true -> false then -- true only initially
+    mode = off ;
+    x = 0 ;
+  elsif (false -> pre mode = off) then
+    if press then
+      mode = on ;
+    else
+      mode = off ;
+    fi
+    x = 0 -> pre x ;
+  elsif press or (false -> pre x >= 4) then
+    mode = off ;
+    x = 0 ;
+  else
+    mode = on ;
+    x = 0 -> pre x + 1 ;
+  fi
+tel
+
+type event = enum {pres, abs};
+
+node sec2min(sec: event) returns (min: event) ;
+  var x, px: int ;
+    
+let
+  px = 0 -> pre x ;
+  x = 0 -> if sec = pres
+           then if px = 50 then 0 else px + 10
+           else px ;
+  min = abs -> if px = 60 then pres else abs ;
+tel
+
+(* 
+  A simple node that always returns the first input value it receives.
+*)
+node First<T>(inp: T) returns (f: T) ;
+let
+  f = inp -> pre f ;
+tel
+
+(*
+  A simple latch that can be set or reset. The latch is set when the 
+  set_req input is true and reset when the reset input is true. 
+  When both inputs are true, the latch is set or reset depending
+  on the value of b, which is arbitrary.
+  The latch retains its state when both inputs are false.
+*)
+node Latch(set_sig, reset: bool) returns (out: bool) ;
+  var x, b: bool ;
+let
+  b = any@<bool> ;
+
+  out = b -> pre x ;
+  
+  x = (set_sig and (not reset or b)) or 
+      (not set_sig and not reset and out) ;
+tel
+
+----------------------
+-- Figure 2.26
+----------------------
+(*
+       +--------------------------------------------------------------+
+       |                                                              |
+       |   +--------------------------------------------------------+ |
+       |   |                                              +-------+ | |
+       | +-|-----------------------------------|``-.  set |       | | |
+       | | |                          |`-._    |    :---->|       | | |
+       | | +->|``-.                +--|   _]o--|..-`      | Latch | | |
+       | |    |    :--+----\``-.   |  |.-`          reset |       |-+----> out
+  inc ---+----|..-`   |     )   :--+--------------------->|       |   |
+       |              | +--/..-`                          +-------+   |
+       |              | |                                             |
+start ------------------+                OneBitCounter                |
+       |              |                                               |
+       +--------------+-----------------------------------------------+
+                      |     
+                      v carry
+*
+-- 'OneBitCounter' is a stateful 1-bit counter implemented using 
+-- the latch component modeled by 'Latch'.
+-- The counter goes from 0 (actually, to 'false') to 1 (actually, 'true')
+-- with a carry value of 0, or from 1 to 0 with a carry value of 1 when
+-- the increment signal 'inc' is true.
+-- It is reset to 0 (actually, to 'false') when the start signal is true.
+-- The initial value of the counter is arbitrary (as provided by 'Latch')
+*)
+node OneBitCounter(inc, start: bool) returns (out, carry: bool) ;
+  var set_req, reset: bool;
+let
+  out = Latch(set_req, reset) ;
+
+  set_req = inc and not reset ; 
+
+  reset = carry or start ;
+
+  carry = inc and out ;
+tel
+
+
+node ThreeBitCounter(inc, start: bool) 
+returns (out0, out1, out2: bool) ;
+  var carry0, carry1, carry2: bool;
+
+  var count: subrange [0, 7] of int ;
+let
+  (out0, carry0) = OneBitCounter(inc,    start) ;
+  (out1, carry1) = OneBitCounter(carry0, start) ;
+  (out2, carry2) = OneBitCounter(carry1, start) ;
+
+  count = DelayedCounter(inc, start) ;
+tel
+
+node DelayedCounter(inc, start: bool) returns (n: subrange [0,7] of int) ;
+  var next: subrange [0, 7] of int ;
+let
+  n = 0 -> pre next ; 
+
+  if start then
+    next = 0 ;
+  elsif inc then
+    if n = 7 then
+      next = 0 ;
+    else
+      next = n + 1 ;
+    fi
+  else
+    next = n ;
+  fi
+tel
