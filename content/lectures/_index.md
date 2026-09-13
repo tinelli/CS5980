@@ -41,23 +41,28 @@ Formal definitions.
 The Synchronous Model [Part I](chap2a.pdf) and [Part II](chap2b.pdf)
 <br>
 **Readings:**
-Sect. 2.1 - 2.4
+Sect. 2.1 - 2.3
 <br>
 **Exercises:**
 2.1, 2.2, 2.4, 2.5, 2.7, 2.9, 2.12, 2.13
-
 
 #### Sep 8 -- Sep 10
 Designing synchronous systems.
 Bottom-up vs. top-down design.
 Synchronous networks.
+Introduction to Lustre.
+Analyxing Lustre components in Kind 2.
 
 **Notes:**
-The Synchronous Model [Part III](chap2c.pdf)
+The Synchronous Model [Part III](chap2c.pdf), 
+[Introduction to Lustre](lustre-intro.pdf)
 <br>
 **Readings:**
+Sect. 2.4
+Lustre [examples](examples.lus) seen in class
+<br>
 **Exercises:**
-2.6, 2.15, 2.17
+2.6, 2.15, 2.17, exercises in class notes
 
 <div style="color: #D3D3D3;">
 
