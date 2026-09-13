@@ -5,12 +5,14 @@ type: resources
 
 
 ### Models
-- Lucent examples seen in class
-- Lucent tutorial
-- Kind 2 [user documentation](https://kind.cs.uiowa.edu/kind2_user_doc/)
+- Lustre/Lucent examples seen in class:
+  [Ex1](../lectures/examples.lus)
+
+- A Lustre [primer](https://kind.cs.uiowa.edu/docs/main/user/docs/inputs-and-outputs/lustre-primer/)
+- Kind 2 [user documentation](https://kind.cs.uiowa.edu/docs/main/user/docs/)
 
 ### Kind 2
-[Kind 2](https://kind2-mc.github.io/kind2/) is a model checker developed 
+[Kind 2](https://kind.cs.uiowa.edu) is a model checker developed 
 at the University of Iowa, currently available natively 
 for Linux, MacOS and Windows.
 
