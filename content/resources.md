@@ -26,7 +26,7 @@ The extension is _highly recommended for homework assignments_.
 Kind 2 is a command-line tool.
 If you prefer, you can also install and run it on your own computer
 from the command line. 
-More information on that can be found [Kind 2's GitHub](https://github.com/kind2-mc/kind2) page.
+More information on that can be found on [Kind 2's GitHub](https://github.com/kind2-mc/kind2) page.
 
 ### Visual Studio Code
 Visual Studio Code is an open source, highly customizable IDE, 

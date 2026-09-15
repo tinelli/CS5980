@@ -50,43 +50,48 @@ Sect. 2.1 - 2.3
 Designing synchronous systems.
 Bottom-up vs. top-down design.
 Synchronous networks.
+<br>
 Introduction to Lustre.
-Analyxing Lustre components in Kind 2.
+Analyzing Lustre components in Kind 2.
 
 **Notes:**
 The Synchronous Model [Part III](chap2c.pdf), 
 [Introduction to Lustre](lustre-intro.pdf)
 <br>
 **Readings:**
-Sect. 2.4
+Sect. 2.4.
 Lustre [examples](examples.lus) seen in class
 <br>
 **Exercises:**
 2.6, 2.15, 2.17, exercises in class notes
 
-<div style="color: #D3D3D3;">
 
 #### Sep 15 -- Sep 17
+Specifying and analyzing composite systems in Kind 2.
+<br>
 Safety Requirements.
 Transition systems.
 Safety properties and invariants.
 Verifying invariants.
 Inductive strengthening.
 Examples of inductive proofs.
-Requirement-based design.
-Complexity of automated invariant verification.
 
 **Notes:**
-Safety Requirements [Part I](chap3a.pdf), [Part II](chap3b.pdf),
-and [Part III](chap3c.pdf)
+Safety Requirements [Part I](chap3a.pdf) and [Part II](chap3b.pdf) <!-- , , and [Part III](chap3c.pdf) -->
 <br>
 **Readings:**
 Sect. 3.1–3.2; Sect. 3.4 (recommended)
+Lustre [examples](examples.lus) seen in class
 <br>
 **Exercises:**
 3.1, 3.6, 3.8; exercises in class notes
 
+<div style="color: #D3D3D3;">
+
 #### Sep 22 -- Sep 24
+Complexity of automated invariant verification.
+Requirement-based design.
+
 Introduction to the Asynchronous Model.
 Asynchronous processes: input, output channels, states and tasks.
 Executions and interleaving semantics.
@@ -103,7 +108,7 @@ The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf)
 Sect. 4.1–4.2
 <br>
 **Exercises:**
-4.2, 4.4, 4.5; exercises in class notes
+4.2, 4.4, 4.5; exercises in class notes.
 
 #### Sep 29 -- Oct 1
 Fairness assumptions: weak and strong fairness.
@@ -118,7 +123,7 @@ The Asynchronous Model [Part II](chap4b.pdf) and [Part III](chap4c.pdf)
 Sect. 4.2–4.3 except 4.3.3
 <br>
 **Exercises:**
-Exercises in class notes
+Exercises in class notes.
 
 #### Oct 5
 Midterm I
@@ -153,8 +158,7 @@ Liveness Requirements [Part I](chap5a.pdf) and [Part II](chap5b.pdf)
 Sect. 5.1–5.2.1; Sec 5.2.2, 5.2.4 (recommended)
 <br>
 **Exercises:**
-Exercises in class notes
-
+Exercises in class notes.
 
 #### Oct 20 -- Oct 22
 The timed model.
