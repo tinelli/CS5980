@@ -1,10 +1,20 @@
+(*
+   CS:5980 Foundations of Embedded Systems
+   Fall 2026
+   The University of Iowa
+   
+   Instructor: Cesare Tinelli
+
+  Credits: Figure references are from the textbook 
+  "Principles of Cyber-Physical Systems" by Rajeev Alur,
+   MIT Press, 2015. 
+ *)
 
 
-----------------------
--- Figure 2.1
-----------------------
-(* IntDelay: a one-step delay node for integers.  
+(* Figure 2.1
+   IntDelay: a one-step delay node with integer input and output.  
    The output is the previous input, with an initial value of 0.
+   (The original version in the textbook uses Boolean values).
 *)
 node IntDelay(inp: int) returns (out: int) ;
   var x: int ;
@@ -13,7 +23,7 @@ let
   x = 0 -> pre inp ;
 tel
 
-(* Delay: a generic delay node for any type T.  
+(* Delay: a generic (polymorphic) delay node for any type T.  
    The output is the previous input, with an arbitrary initial value 
    of type T.
 *)
@@ -25,24 +35,44 @@ let
   x = x0 -> pre inp ;
 tel
 
+node abs(x: int) returns (y: int) ;
+let
+  y = if x >= 0 then x else -x ;
+
+  check y >= 0 ;
+  check y >= x ;
+  check y >= -x ;
+  check y = x or y = -x ;
+tel
+
+node inc(x: int) returns (y: int) ;
+  var fx: int ;
+let
+  fx = x -> pre fx ;
+
+  y = x -> pre y + 2 ;
+  check true -> y > pre y ;
+  check true -> y - pre y = 2;
+  check y >= x; -- invalid!
+  check y >= fx; -- valid
+tel 
 
 node DiffSquare(in1, in2: int) returns (out: int) ;
 let
   out = in1 * in1 - in2 * in2 ;
 tel
 
-node DiffSquare1(i1, i2: int) returns (out: int) ;
+node DiffSquare1(i1, i2: int) returns (o: int) ;
   var x, y: int ;
 let
   x = i1 + i2 ;
   y = i1 - i2 ;
-  out = x * y;
+  o = x * y;
 
   -- nodeDiffSquare1 is equivalent to nodeDiffSquare 
   -- but it uses fewer multiplications.
-  check out = DiffSquare(i1, i2) ;
+  check o = DiffSquare(i1, i2) ;
 tel
-
 
 (*
         +----------------------+
@@ -50,43 +80,42 @@ tel
         +----------------------+
         | bool in              |
         | if y then            |  
-bool in |   out := x           | bool out
+ bool i |   o := x             | bool o
   ----->| else                 |------>
-        |   out := 0 ;         |
-        | x := in ;            |
+        |   o := 0 ;           |
+        | x := i ;             |
         | y := ¬y              |
         +----------------------+
 *)
-node Mistery(inp: bool) returns (out: bool) ;
+
+node Mistery(i: bool) returns (o: bool) ;
   var x, y: bool ;
 let
-  x = false -> inp ;
+  o = if (false -> pre y) then (false -> pre x) else false;
+  x = false -> i ;
   y = false -> not pre y ;
-  out = if y then x else false;
 tel
 
 (*
-  Alternative implementation of the Mistery node using an 
-  if ... then ... else ... fi statement instead of a conditional expression.
+  Alternative implementation of the Mistery node using 
+  an if ... then ... else ... fi statement instead of 
+  a conditional expression.
 *)
-node Mistery1(inp: bool) returns (out: bool) ;
+node Mistery1(i: bool) returns (o: bool) ;
   var x, y: bool ;
 let
-  x = false -> inp ;
-  y = false -> not pre y ;
-  if y then 
-    out = x ;
+  if false -> y then 
+    o = false -> pre x ;
   else 
-    out = false ;
+    o = false ;
   fi
+  x = false -> i ;
+  y = false -> not pre y ;
   -- the if statement above is equivalent to the conditional expression 
   -- in node Mistery
 tel
 
-----------------------
--- Figure 2.2
-----------------------
-(*      
+(* Figure 2.2
   A simple switch that can be in one of two states: on or off.
   The switch changes state based on the press input and a counter x.
  
@@ -111,6 +140,7 @@ let
   mode = off -> if pre mode = off 
                 then (if press then on else off)
                 else (if press or pre x >= 4 then off else on) ;
+
   x = 0 -> if pre mode = off 
            then pre x
            else (if press or pre x >= 4 then 0 else pre x + 1) ;
@@ -149,47 +179,75 @@ tel
 
 type event = enum {pres, abs};
 
-node sec2min(sec: event) returns (min: event) ;
+(*
+  A cyclic counter that counts the number of input events and
+  outputs an event every 60 input events. 
+ *)
+ node sec2min(sec: event) returns (min: event) ;
   var x, px: int ;
     
 let
   px = 0 -> pre x ;
+
   x = 0 -> if sec = pres
-           then if px = 50 then 0 else px + 10
+           then if px = 59 then 0 else px + 1
            else px ;
-  min = abs -> if px = 60 then pres else abs ;
+  min = abs -> if px = 59 and sec = pres then pres else abs ;
 tel
 
-(* 
-  A simple node that always returns the first input value it receives.
+-- Parallel composition of nodes is achieved by applying nodes
+-- as macros. 
+
+(* Figure 2.15
+     +------------------------------------+
+     |   DoubleDelay                      |
+     |                                    |
+     |  +-----------+      +-----------+  |
+ inp |  |           | temp |           |  | out
+ ----+->|   Delay   |----->|   Delay   |--+---->
+     |  |           |      |           |  |
+     |  +-----------+      +-----------+  |
+     |                                    |
+     +------------------------------------+
 *)
-node First<T>(inp: T) returns (f: T) ;
+node DoubleDelay<T>(inp: T) returns (out: T) ;
+  var temp: T ;
 let
-  f = inp -> pre f ;
+  out  = Delay@<T>(temp) ;
+  temp = Delay@<T>(inp) ;
 tel
 
-(*
+
+(* Figure 2.25 
   A simple latch that can be set or reset. The latch is set when the 
   set_req input is true and reset when the reset input is true. 
   When both inputs are true, the latch is set or reset depending
   on the value of b, which is arbitrary.
   The latch retains its state when both inputs are false.
 *)
-node Latch(set_sig, reset: bool) returns (out: bool) ;
+node Latch(set_sig, reset_sig: bool) returns (out: bool) ;
   var x, b: bool ;
 let
   b = any@<bool> ;
 
   out = b -> pre x ;
   
-  x = (set_sig and (not reset or b)) or 
-      (not set_sig and not reset and out) ;
+  x = (set_sig and (not reset_sig or b)) or 
+      (not set_sig and not reset_sig and out) ;
+
+  check (out = false) -> true ; -- invalid
+  check (out = true) -> true ; -- invalid
+  check (out = b) -> true ;
+  check true -> set_sig => x = true ; -- invalid
+  check true -> reset_sig => x = false ; -- invalid
+  check true -> (set_sig and not reset_sig) => x = true ;
+  check true -> (not set_sig and reset_sig) => x = false ;
+  check true -> (set_sig and reset_sig) => x = b ;
+  check true -> (not set_sig and not reset_sig) => x = pre x ;
 tel
 
-----------------------
--- Figure 2.26
-----------------------
-(*
+(* Figure 2.26
+
        +--------------------------------------------------------------+
        |                                                              |
        |   +--------------------------------------------------------+ |
@@ -206,7 +264,7 @@ start ------------------+                OneBitCounter                |
        +--------------+-----------------------------------------------+
                       |     
                       v carry
-*
+
 -- 'OneBitCounter' is a stateful 1-bit counter implemented using 
 -- the latch component modeled by 'Latch'.
 -- The counter goes from 0 (actually, to 'false') to 1 (actually, 'true')
@@ -216,45 +274,126 @@ start ------------------+                OneBitCounter                |
 -- The initial value of the counter is arbitrary (as provided by 'Latch')
 *)
 node OneBitCounter(inc, start: bool) returns (out, carry: bool) ;
-  var set_req, reset: bool;
+  var set_sig, reset_sig: bool;
 let
-  out = Latch(set_req, reset) ;
+  out = Latch(set_sig, reset_sig) ;
 
-  set_req = inc and not reset ; 
+  set_sig = inc and not reset_sig ; 
 
-  reset = carry or start ;
+  reset_sig = carry or start ;
 
   carry = inc and out ;
 tel
 
-
+(* Figure 2.27
+  This is a 3-bit counter implemented composing three instances
+  of the OneBitCounter component.
+*)
 node ThreeBitCounter(inc, start: bool) 
 returns (out0, out1, out2: bool) ;
   var carry0, carry1, carry2: bool;
-
-  var count: subrange [0, 7] of int ;
 let
   (out0, carry0) = OneBitCounter(inc,    start) ;
   (out1, carry1) = OneBitCounter(carry0, start) ;
   (out2, carry2) = OneBitCounter(carry1, start) ;
-
-  count = DelayedCounter(inc, start) ;
 tel
 
+(*
+  This is an integer counter implemented using a single state variable
+  of type subrange [0,7] of int. The counter goes from 0 to 7 and 
+  then wraps around to 0. 
+  It is incremented when the inc signal is true and retains its value
+  when the inc signal is false.
+  It is reset to 0 when the start signal is true.
+  It is a delayed counter, meaning that the output value is actually
+  the previous value of the counter.
+*)
 node DelayedCounter(inc, start: bool) returns (n: subrange [0,7] of int) ;
-  var next: subrange [0, 7] of int ;
+  var c: subrange [0, 7] of int ;
 let
-  n = 0 -> pre next ; 
+  n = 0 -> pre c ; 
 
   if start then
-    next = 0 ;
+    c = 0 ;
   elsif inc then
     if n = 7 then
-      next = 0 ;
+      c = 0 ;
     else
-      next = n + 1 ;
+      c = n + 1 ;
     fi
   else
-    next = n ;
+    c = n ;
   fi
 tel
+
+
+(*
+  This is a utility function that converts a Boolean value 
+  to an integer value of type subrange [0,1] of int. 
+*)
+function ToBit(b: bool) returns (n: subrange [0, 1] of int) ;
+let
+   n = if b then 1 else 0 ;
+tel
+
+(*
+  This is a utility function that converts a 3-bit binary number
+  represented by three Boolean values b2, b1, b0 to an integer value
+  of type subrange [0,7] of int. The bits are interpreted as a binary
+  number with b2 as the most significant bit and b0 as the least 
+  significant bit.
+*)
+function ToInt(b2, b1, b0: bool) returns (n: subrange [0, 7] of int) ;
+let
+   n = 4 * ToBit(b2) + 2 * ToBit(b1) + ToBit(b0) ;
+tel
+
+
+(*
+  This is an observer node that checks that the ThreeBitCounter
+  behaves like a delayed resettable counter modulo 8.
+  It compares the output of the ThreeBitCounter with the output
+  of the DelayedCounter and checks that they are equal.   
+*)
+node Observer(inc, start: bool) returns (n1, n2: int) ;
+  var out0, out1, out2: bool ;
+let
+  (out0, out1, out2) = ThreeBitCounter(inc, start) ;
+
+  n1 = ToInt(out2, out1, out0) ;
+
+  n2 = DelayedCounter(inc, start) ;
+
+  -- Only the third property holds
+  check "Same count" n1 = n2 ;
+  check "Same count 1" Since(start, n1 = n2) ;
+  check "Same count 2" Once(start) => Since(start, n1 = n2) ;
+tel
+
+
+----------------------
+-- Temporal Operators
+----------------------
+
+(*
+  Once(X) is true precisely when X has been true at some point 
+  in the past or is true now.
+  Note Once is a monotonic operator: if X is true at any point 
+  in the past, Once(X) will remain true for all future steps, 
+  regardless of the value of X in the future.
+*)
+node Once(X: bool) returns (Z: bool) ;
+let
+  Z =  X -> X or pre Z ;
+tel
+
+(*
+  Since(X,Y) is true precisely when X has been true 
+  at some point in the past, and Y has been continuously 
+  true afterwards.
+*)
+node Since(X, Y: bool) returns (Z: bool) ;
+let
+  Z =  X or (Y and (false -> pre Z)) ;
+tel
+
