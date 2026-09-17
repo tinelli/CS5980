@@ -251,7 +251,7 @@ let
   -- In all later rounds, x is false if there is a reset and no set
   check "P8" true -> (not set_sig and reset_sig) => not x ;
   -- In all later rounds, x is equal to b if there is 
-  -- a cuncurrent set and a reset
+  -- a concurrent set and a reset
   check "P9" true -> (set_sig and reset_sig) => x = b ;
   -- In all later rounds, x is keeps its previous value if there is
   -- no set and no reset
@@ -297,7 +297,7 @@ let
   carry = inc and out ;
 tel
 (* Note: 
-   Kind 2 correctly determines that there are no definitioinal cycles
+   Kind 2 correctly determines that there are no definitional cycles
    in the definition of OneBitCounter, even if out is apparently defined 
    in terms of itself (out -> reset_sig -> carry --> out). 
    The reason is that the output of Latch is based on the *previous* value
