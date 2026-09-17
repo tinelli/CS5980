@@ -236,27 +236,26 @@ let
       (not set_sig and not reset_sig and out) ;
 
   -- Initially, out is false (in every execution) [invalid]
-  check (out = false) -> true ;
-  check not out -> true ; -- more concise version of the previous property
+  check "P1" (out = false) -> true ;
+  check "P2" not out -> true ; -- more concise version of the previous property
   -- Initially, out is true [invalid]
-  check (out = true) -> true ;
-  check out -> true ; -- more concise version of the previous property
+  check "P3" out -> true ;
   -- Initially, out is equal to b (hence, arbitrary)
-  check (out = b) -> true ;
+  check "P4" (out = b) -> true ;
   -- In all later rounds, x is true if there is a set [invalid]
-  check true -> set_sig => x ;
+  check "P5" true -> set_sig => x ;
   -- In all later rounds, x is true if there is a reset [invalid]
-  check true -> reset_sig => not x ;
+  check "P6" true -> reset_sig => not x ;
   -- In all later rounds, x is true if there is a set and no reset
-  check true -> (set_sig and not reset_sig) => x ;
+  check "P7" true -> (set_sig and not reset_sig) => x ;
   -- In all later rounds, x is false if there is a reset and no set
-  check true -> (not set_sig and reset_sig) => not x ;
+  check "P8" true -> (not set_sig and reset_sig) => not x ;
   -- In all later rounds, x is equal to b if there is 
   -- a cuncurrent set and a reset
-  check true -> (set_sig and reset_sig) => x = b ;
+  check "P9" true -> (set_sig and reset_sig) => x = b ;
   -- In all later rounds, x is keeps its previous value if there is
   -- no set and no reset
-  check true -> (not set_sig and not reset_sig) => x = pre x ;
+  check "P10" true -> (not set_sig and not reset_sig) => x = pre x ;
 tel
 
 (* Figure 2.26
