@@ -21,7 +21,8 @@ its [online version](https://kind.cs.uiowa.edu/app/).
 The online interface should be mostly self-explanatory.
 Kind 2 is also available as a Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=kind2-mc.vscode-kind2).
 Follow the installation and usage instructions provided by the extension.
-The extension is _highly recommended for homework assignments_.
+We suggest that you use the **Pre-release Version**.
+The extension is **highly recommended for homework assignments**.
 
 Kind 2 is a command-line tool.
 If you prefer, you can also install and run it on your own computer
