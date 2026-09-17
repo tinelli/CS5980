@@ -8,8 +8,7 @@
   Credits: Figure references are from the textbook 
   "Principles of Cyber-Physical Systems" by Rajeev Alur,
    MIT Press, 2015. 
- *)
-
+*)
 
 (* Figure 2.1
    IntDelay: a one-step delay node with integer input and output.  
@@ -96,11 +95,11 @@ let
   y = false -> not pre y ;
 tel
 
-(*
+/*
   Alternative implementation of the Mistery node using 
   an if ... then ... else ... fi statement instead of 
   a conditional expression.
-*)
+*/
 node Mistery1(i: bool) returns (o: bool) ;
   var x, y: bool ;
 let
@@ -145,7 +144,7 @@ let
            then pre x
            else (if press or pre x >= 4 then 0 else pre x + 1) ;
 
-  check "P1" 0 <= x;
+  check "P1" 0 <= x ;
   check "P2" x <= 4 ;
   check "P3" x <> 0 => mode = on ;
   check "P4" true -> x <> 0 => x > pre x ;
@@ -182,10 +181,9 @@ type event = enum {pres, abs};
 (*
   A cyclic counter that counts the number of input events and
   outputs an event every 60 input events. 
- *)
- node sec2min(sec: event) returns (min: event) ;
-  var x, px: int ;
-    
+*)
+node sec2min(sec: event) returns (min: event) ;
+  var x, px: int ;    
 let
   px = 0 -> pre x ;
 
@@ -217,7 +215,6 @@ let
   temp = Delay@<T>(inp) ;
 tel
 
-
 (* Figure 2.25 
   A simple latch that can be set or reset. The latch is set when the 
   set_req input is true and reset when the reset input is true. 
@@ -228,21 +225,37 @@ tel
 node Latch(set_sig, reset_sig: bool) returns (out: bool) ;
   var x, b: bool ;
 let
-  b = any@<bool> ;
+  b = any@<bool> ; -- value of b at each round is arbitrary
 
   out = b -> pre x ;
   
+  -- the next output value of the latch is defined in terms 
+  -- of the current input values
+  -- When set and reset are both true the value of x is arbitrary (equal to b)
   x = (set_sig and (not reset_sig or b)) or 
       (not set_sig and not reset_sig and out) ;
 
-  check (out = false) -> true ; -- invalid
-  check (out = true) -> true ; -- invalid
+  -- Initially, out is false (in every execution) [invalid]
+  check (out = false) -> true ;
+  check not out -> true ; -- more concise version of the previous property
+  -- Initially, out is true [invalid]
+  check (out = true) -> true ;
+  check out -> true ; -- more concise version of the previous property
+  -- Initially, out is equal to b (hence, arbitrary)
   check (out = b) -> true ;
-  check true -> set_sig => x = true ; -- invalid
-  check true -> reset_sig => x = false ; -- invalid
-  check true -> (set_sig and not reset_sig) => x = true ;
-  check true -> (not set_sig and reset_sig) => x = false ;
+  -- In all later rounds, x is true if there is a set [invalid]
+  check true -> set_sig => x ;
+  -- In all later rounds, x is true if there is a reset [invalid]
+  check true -> reset_sig => not x ;
+  -- In all later rounds, x is true if there is a set and no reset
+  check true -> (set_sig and not reset_sig) => x ;
+  -- In all later rounds, x is false if there is a reset and no set
+  check true -> (not set_sig and reset_sig) => not x ;
+  -- In all later rounds, x is equal to b if there is 
+  -- a cuncurrent set and a reset
   check true -> (set_sig and reset_sig) => x = b ;
+  -- In all later rounds, x is keeps its previous value if there is
+  -- no set and no reset
   check true -> (not set_sig and not reset_sig) => x = pre x ;
 tel
 
@@ -284,6 +297,13 @@ let
 
   carry = inc and out ;
 tel
+(* Note: 
+   Kind 2 correctly determines that there are no definitioinal cycles
+   in the definition of OneBitCounter, even if out is apparently defined 
+   in terms of itself (out -> reset_sig -> carry --> out). 
+   The reason is that the output of Latch is based on the *previous* value
+   of its inputs.
+*)
 
 (* Figure 2.27
   This is a 3-bit counter implemented composing three instances
@@ -300,7 +320,7 @@ tel
 
 (*
   This is an integer counter implemented using a single state variable
-  of type subrange [0,7] of int. The counter goes from 0 to 7 and 
+  c of type subrange [0,7] of int. The counter goes from 0 to 7 and 
   then wraps around to 0. 
   It is incremented when the inc signal is true and retains its value
   when the inc signal is false.
@@ -325,7 +345,10 @@ let
     c = n ;
   fi
 tel
-
+(* Note:
+   Clicking the "Check Properties"  will cause Kind 2 to verify that 
+   the runtime values of c and of n are indeed in the declared range.
+*)
 
 (*
   This is a utility function that converts a Boolean value 
@@ -339,8 +362,8 @@ tel
 (*
   This is a utility function that converts a 3-bit binary number
   represented by three Boolean values b2, b1, b0 to an integer value
-  of type subrange [0,7] of int. The bits are interpreted as a binary
-  number with b2 as the most significant bit and b0 as the least 
+  of type subrange [0, 7] of int. The bits are interpreted as a binary
+  number, with b2 as the most significant bit and b0 as the least 
   significant bit.
 *)
 function ToInt(b2, b1, b0: bool) returns (n: subrange [0, 7] of int) ;
@@ -353,7 +376,7 @@ tel
   This is an observer node that checks that the ThreeBitCounter
   behaves like a delayed resettable counter modulo 8.
   It compares the output of the ThreeBitCounter with the output
-  of the DelayedCounter and checks that they are equal.   
+  of the DelayedCounter and checks that they are equal at all times.   
 *)
 node Observer(inc, start: bool) returns (n1, n2: int) ;
   var out0, out1, out2: bool ;
@@ -364,12 +387,18 @@ let
 
   n2 = DelayedCounter(inc, start) ;
 
-  -- Only the third property holds
+  -- the two counters are always equal [invalid]
   check "Same count" n1 = n2 ;
+  -- the two counters are equal since the last reset, 
+  -- if any [still invalid!]
   check "Same count 1" Since(start, n1 = n2) ;
+  -- the two counters are equal since the last reset, 
+  -- provided there was one
   check "Same count 2" Once(start) => Since(start, n1 = n2) ;
+  -- Safer reformulation of the previous property
+  -- which additionally checks that Once(start) is not always false
+  check "Same count 3" Since(start, n1 = n2) provided Once(start) ;
 tel
-
 
 ----------------------
 -- Temporal Operators
@@ -388,12 +417,10 @@ let
 tel
 
 (*
-  Since(X,Y) is true precisely when X has been true 
-  at some point in the past, and Y has been continuously 
-  true afterwards.
+  Since(X,Y) is true precisely when X has been true at some point, 
+  and Y has been continuously true afterwards.
 *)
 node Since(X, Y: bool) returns (Z: bool) ;
 let
   Z =  X or (Y and (false -> pre Z)) ;
 tel
-
