@@ -59,7 +59,8 @@ The Synchronous Model [Part III](chap2c.pdf),
 [Introduction to Lustre](lustre-intro.pdf)
 <br>
 **Readings:**
-Sect. 2.4.
+Sect. 2.4;
+Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lustre-primer/);
 Lustre [examples](examples.lus) seen in class
 <br>
 **Exercises:**
@@ -72,15 +73,13 @@ Specifying and analyzing composite systems in Kind 2.
 Safety Requirements.
 Transition systems.
 Safety properties and invariants.
-Verifying invariants.
-Inductive strengthening.
-Examples of inductive proofs.
 
 **Notes:**
 Safety Requirements [Part I](chap3a.pdf) and [Part II](chap3b.pdf) <!-- , , and [Part III](chap3c.pdf) -->
 <br>
 **Readings:**
-Sect. 3.1–3.2; Sect. 3.4 (recommended)
+Sect. 3.1–3.2; Sect. 3.4 (recommended);
+Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lustre-primer/);
 Lustre [examples](examples.lus) seen in class
 <br>
 **Exercises:**
@@ -89,6 +88,9 @@ Lustre [examples](examples.lus) seen in class
 <div style="color: #D3D3D3;">
 
 #### Sep 22 -- Sep 24
+Verifying invariants.
+Inductive strengthening.
+Examples of inductive proofs.
 Complexity of automated invariant verification.
 Requirement-based design.
 
@@ -105,6 +107,7 @@ Shared memory. The mutual exclusion problem.
 The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf)
 <br>
 **Readings:**
+Sect. 3.2; Sect. 3.4 (recommended);
 Sect. 4.1–4.2
 <br>
 **Exercises:**

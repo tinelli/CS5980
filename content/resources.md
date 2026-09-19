@@ -5,11 +5,11 @@ type: resources
 
 
 ### Models
-- Lustre/Lucent examples seen in class:
-  [Ex1](../lectures/examples.lus)
+- Lustre/Lucent [examples](../lectures/examples.lus) seen in class
+  
 
-- A Lustre [primer](https://kind.cs.uiowa.edu/docs/main/user/docs/lustre-primer/)
-- Kind 2 [user documentation](https://kind.cs.uiowa.edu/docs/main/user/docs/)
+- A Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lustre-primer/)
+- Kind 2 [user documentation](https://kind.cs.uiowa.edu/docs/main/user/)
 
 ### Kind 2
 [Kind 2](https://kind.cs.uiowa.edu) is a model checker developed 
