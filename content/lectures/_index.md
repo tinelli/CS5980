@@ -60,7 +60,7 @@ The Synchronous Model [Part III](chap2c.pdf),
 <br>
 **Readings:**
 Sect. 2.4;
-Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lustre-primer/);
+Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lucent-primer/);
 Lustre [examples](examples.lus) seen in class
 <br>
 **Exercises:**
