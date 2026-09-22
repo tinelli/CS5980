@@ -6,9 +6,9 @@ type: exams
 
 | Exam | Date | Time | Place |
 | --- | --- | --- | --- |
-| Midterm I | Oct 5, 2026 | 5:00 pm - 6:15 pm | TBA |
-| Midterm II | Nov 16, 2026 | 5:00 pm - 6:15 pm | TBA |
-| Final | TBA | TBA | TBA |
+| Midterm I | Oct 5, 2026 | 5:00 pm -- 6:15 pm | B13 MLH |
+| Midterm II | Nov 16, 2026 | 5:00 pm -- 6:15 pm | B13 MLH |
+| Final | Dec 14 | 5:30 pm -- 7:30 pm | 105 MLH |
 
 
 ### Midterm I
