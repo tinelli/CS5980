@@ -8,7 +8,7 @@ type: resources
 - Lustre/Lucent [examples](../lectures/examples.lus) seen in class
   
 
-- A Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lustre-primer/)
+- A Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lucent-primer/)
 - Kind 2 [user documentation](https://kind.cs.uiowa.edu/docs/main/user/)
 
 ### Kind 2

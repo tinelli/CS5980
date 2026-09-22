@@ -137,9 +137,9 @@ other concerns.
 
 | Day | Time |
 |:---:|:---:|
-| Monday | 2:30pm - 3:30pm |
-| Wednesday | 11:30am - 12:30pm |
-| Thursday | 01:30pm - 02:30pm |
+| Monday | 2:30 pm -- 3:30 pm |
+| Wednesday | 11:30 am -- 12:30 pm |
+| Thursday | 1:30 pm -- 2:30 pm |
 
 The instructor is also available by appointment if you are unable to attend
 the scheduled drop-in hours.
@@ -156,8 +156,8 @@ the scheduled drop-in hours.
 
 | Day | Time |
 |:---:|:---:|
-| Tuesday | 10:30am - 12:00pm |
-| Friday | 1:00pm - 2:30pm |
+| Tuesday | 10:30 am -- 12:00 pm |
+| Friday | 1:00 pm -- 2:30 pm |
 
 The TA is also available by appointment if you are unable to attend
 the scheduled drop-in hours.
@@ -245,11 +245,11 @@ Final grades will be awarded based on the following ranges:
 
 | Grade | Range |
 | :---: | ---: |
-| A | 89-100 |
-| B | 75-88 |
-| C | 61-74 |
-| D | 50-60 |
-| F | 0-49 |
+| A | 89--100 |
+| B | 75--88 |
+| C | 61--74 |
+| D | 50--60 |
+| F | 0--49 |
 
 Final scores near a cutoff will be individually considered 
 for the next higher grade. 
