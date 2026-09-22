@@ -32,7 +32,7 @@ It will contain a mix of true/false, multiple choice, short answer questions, an
 
 ### Midterm II
 
-The midterm will be designed to be done in 50 minutes and will focus 
+The midterm will focus 
 on material from the Oct 6 lecture through the Nov 12 lecture (both included)
 <!-- ;
 specifically, it will focus the topics in Chapters 5,6, 7 and 9 of the textbook. -->
