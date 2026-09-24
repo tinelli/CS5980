@@ -78,22 +78,33 @@ Safety properties and invariants.
 Safety Requirements [Part I](chap3a.pdf) and [Part II](chap3b.pdf) <!-- , , and [Part III](chap3c.pdf) -->
 <br>
 **Readings:**
-Sect. 3.1–3.2; Sect. 3.4 (recommended);
+Sect. 3.1–3.2;
 Lucent [primer](https://kind.cs.uiowa.edu/docs/main/user/lustre-primer/);
 Lustre [examples](examples.lus) seen in class
 <br>
 **Exercises:**
 3.1, 3.6, 3.8; exercises in class notes
 
-<div style="color: #D3D3D3;">
-
 #### Sep 22 -- Sep 24
 Verifying invariants.
 Inductive strengthening.
 Examples of inductive proofs.
-Complexity of automated invariant verification.
 Requirement-based design.
+Complexity of automated invariant verification.
 
+**Notes:**
+Safety Requirements [Part II](chap3b.pdf) and [Part III](chap3c.pdf)
+<br>
+**Readings:**
+Sect. 3.2; Sect. 3.4 (recommended)
+<br>
+**Exercises:**
+Exercises in class notes
+
+<div style="color: #D3D3D3;">
+
+
+#### Sep 29 -- Oct 1
 Introduction to the Asynchronous Model.
 Asynchronous processes: input, output channels, states and tasks.
 Executions and interleaving semantics.
@@ -103,36 +114,24 @@ Asynchronous design primitives.
 Synchronization. Deadlocks.
 Shared memory. The mutual exclusion problem.
 
+Fairness assumptions: weak and strong fairness.
+Correctness under fairness assumptions.
+
 **Notes:**
-The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf)
+The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf) <!-- and [Part III](chap4c.pdf) -->
 <br>
 **Readings:**
-Sect. 3.2; Sect. 3.4 (recommended);
-Sect. 4.1–4.2
+Sect. 4.1–4.3 except 4.3.3
 <br>
 **Exercises:**
 4.2, 4.4, 4.5; exercises in class notes.
-
-#### Sep 29 -- Oct 1
-Fairness assumptions: weak and strong fairness.
-Correctness under fairness assumptions.
-Asynchronous coordination protocols.
-Leader election. Reliable transmission.
-
-**Notes:**
-The Asynchronous Model [Part II](chap4b.pdf) and [Part III](chap4c.pdf)
-<br>
-**Readings:**
-Sect. 4.2–4.3 except 4.3.3
-<br>
-**Exercises:**
-Exercises in class notes.
 
 #### Oct 5
 Midterm I
 
 #### Oct 6 -- Oct 8
-More on asynchronous coordination protocols.
+Asynchronous coordination protocols.
+Leader election. Reliable transmission.
 The alternating bit protocol.
 Wait-free consensus.
 Specifying liveness requirements.

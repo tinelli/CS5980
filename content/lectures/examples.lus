@@ -423,3 +423,123 @@ node Since(X, Y: bool) returns (Z: bool) ;
 let
   Z =  X or (Y and (false -> pre Z)) ;
 tel
+
+
+
+
+type color = enum { red, green } ;
+type train_mode = enum { away, wait, bridge } ;
+type train_loc = enum { arrive, leave, null } ;
+
+
+node train (signal: color) 
+returns (mode: train_mode; out: train_loc) ;
+  var choice: int;
+let
+  choice = any@<int>;
+
+  out = null -> if choice = 1 and pre mode = away   then arrive
+             else if choice = 2 and pre mode = bridge then leave
+             else null ;
+
+  mode = away -> if (pre mode = away and out = arrive) or
+                    (pre mode = wait and signal <> green) then wait
+            else if (pre mode = wait and signal = green) or
+                    (pre mode = bridge and out <> leave) then bridge
+            else away ;
+tel ;
+
+
+node controller_1 (out_E, out_W: train_loc) 
+returns (signal_E, signal_W: color) ;
+  var west, east: color ;
+let
+  signal_W = green -> pre west ;
+  signal_E = green -> pre east ;
+
+  west = green -> if out_E = leave then green
+             else if out_E = arrive then red
+             else pre west ;
+
+  east = green -> if out_W = leave then green
+            else if out_E <> arrive and 
+                    out_W = arrive then red
+            else pre east ;
+tel ;
+
+
+node controller_2 (out_E, out_W: train_loc) 
+returns (signal_E, signal_W: color) ;
+  var near_E, near_W: bool ;
+      west, east: color ;
+let
+  signal_E = red -> pre east ;
+  signal_W = red -> pre west ;
+
+  near_E = false -> out_E = arrive or (out_E <> leave and pre near_E) ; 
+  near_W = false -> out_W = arrive or (out_E <> leave and pre near_W) ;
+
+  east = red -> if not near_E then red
+           else if pre west = red then green
+           else pre east ;
+  west = red -> if not near_W then red
+           else if east = red then green
+           else pre west ;
+tel ;
+
+type unit = enum { unit } ;
+
+node train_system (c: subrange [1,2] of int) 
+returns (out_E, out_W: train_loc; signal_E, signal_W: color) ;
+  var mode_E, mode_W: train_mode ;
+let
+  (mode_E, out_E) = train(signal_E) ;
+  (mode_W, out_W) = train(signal_W) ;
+
+  if c = 1 then 
+    (signal_E, signal_W) = controller_1(out_E, out_W) ;
+  else
+    (signal_E, signal_W) = controller_2(out_E, out_W) ;
+  fi
+
+  -- This safety property is satisfied with controller 2 
+  -- but not with controller 1
+  check "No crashes"  not (mode_E = bridge and mode_W = bridge) ;
+tel ;
+
+
+node west_fair_monitor (out_E, out_W: train_loc; signal_W: color)
+returns (ok: bool) ;
+  var mode: int ;
+let
+  mode = 0 -> if pre mode = 0 then
+                (if out_W = arrive then 1 
+                 else 0)
+         else if pre mode = 1 then
+                (if signal_W = green then 0 
+                 else if out_E = leave then 2 
+                 else 1)
+         else if pre mode = 2 then
+                (if signal_W = green then 0
+                 else if out_E = leave then 3
+                 else 2) 
+         else 3 ;
+                
+  ok = mode <> 3 ;
+tel
+
+
+node top (u: unit) returns (c: subrange [1,2] of int) ;
+  var out_E, out_W: train_loc; 
+      signal_E, signal_W: color;
+let
+  c = 2;
+
+  (out_E, out_W, signal_E, signal_W) = train_system (c) ; 
+
+  -- This fairness property is satisfied with controller 1 
+  -- but not with controller 2 
+  check "Fairness for West train" 
+    west_fair_monitor(out_E, out_W, signal_W) ;
+tel
+
