@@ -101,10 +101,11 @@ Sect. 3.2; Sect. 3.4 (recommended)
 **Exercises:**
 Exercises in class notes
 
-<div style="color: #D3D3D3;">
 
 
 #### Sep 29 -- Oct 1
+More on complexity of automated invariant verification.
+<br>
 Introduction to the Asynchronous Model.
 Asynchronous processes: input, output channels, states and tasks.
 Executions and interleaving semantics.
@@ -114,11 +115,9 @@ Asynchronous design primitives.
 Synchronization. Deadlocks.
 Shared memory. The mutual exclusion problem.
 
-Fairness assumptions: weak and strong fairness.
-Correctness under fairness assumptions.
 
 **Notes:**
-The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf) <!-- and [Part III](chap4c.pdf) -->
+The Asynchronous Model [Part I](chap4a.pdf) <!-- and [Part II](chap4b.pdf) and [Part III](chap4c.pdf) -->
 <br>
 **Readings:**
 Sect. 4.1–4.3 except 4.3.3
@@ -126,15 +125,21 @@ Sect. 4.1–4.3 except 4.3.3
 **Exercises:**
 4.2, 4.4, 4.5; exercises in class notes.
 
+
 #### Oct 5
 Midterm I
 
+<div style="color: #D3D3D3;">
+
 #### Oct 6 -- Oct 8
+Fairness assumptions: weak and strong fairness.
+Correctness under fairness assumptions.
 Asynchronous coordination protocols.
 Leader election. Reliable transmission.
 The alternating bit protocol.
 Wait-free consensus.
 Specifying liveness requirements.
+<br>
 Introduction to Linear Temporal Logic: syntax and semantics.
 
 **Notes:**
