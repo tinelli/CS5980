@@ -117,7 +117,7 @@ Shared memory. The mutual exclusion problem.
 
 
 **Notes:**
-The Asynchronous Model [Part I](chap4a.pdf) <!-- and [Part II](chap4b.pdf) and [Part III](chap4c.pdf) -->
+The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf) <!-- and [Part III](chap4c.pdf) -->
 <br>
 **Readings:**
 Sect. 4.1–4.3 except 4.3.3
