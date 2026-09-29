@@ -11,7 +11,6 @@ Chapters and sections in readings are from the textbook, and
 so are the exercises.
 
 #### Aug 25 -- Aug 27
-
 Course introduction and administration.
 Introduction to Embedded Systems.
 The synchronous model of reactive computation.
