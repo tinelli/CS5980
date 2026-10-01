@@ -100,8 +100,6 @@ Sect. 3.2; Sect. 3.4 (recommended)
 **Exercises:**
 Exercises in class notes
 
-
-
 #### Sep 29 -- Oct 1
 More on complexity of automated invariant verification.
 <br>
@@ -114,15 +112,14 @@ Asynchronous design primitives.
 Synchronization. Deadlocks.
 Shared memory. The mutual exclusion problem.
 
-
 **Notes:**
 The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf) <!-- and [Part III](chap4c.pdf) -->
 <br>
 **Readings:**
-Sect. 4.1–4.3 except 4.3.3
+Sect. 4.1–4.2 except 4.2.2
 <br>
 **Exercises:**
-4.2, 4.4, 4.5; exercises in class notes.
+4.2, 4.4, 4.5; exercises in class notes
 
 
 #### Oct 5
@@ -164,7 +161,7 @@ Liveness Requirements [Part I](chap5a.pdf) and [Part II](chap5b.pdf)
 Sect. 5.1–5.2.1; Sec 5.2.2, 5.2.4 (recommended)
 <br>
 **Exercises:**
-Exercises in class notes.
+Exercises in class notes
 
 #### Oct 20 -- Oct 22
 The timed model.
