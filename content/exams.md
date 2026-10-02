@@ -24,7 +24,7 @@ in the [Lectures](../lectures) section as well as solutions
 to homework assignments.
 However, you can safely assume that there will be **no** questions on the material
 covered in these sections of the textbook:
-1.3-1.4, 3.3-3.4, 4.3.3.
+1.3-1.4, 3.3-3.4, 4.2.3, and 4.2.4.
 
 It will contain a mix of true/false, multiple choice, short answer questions, and problems similar to those in exercises, homework assignments, and quizzes.
 
