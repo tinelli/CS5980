@@ -116,7 +116,7 @@ Shared memory. The mutual exclusion problem.
 The Asynchronous Model [Part I](chap4a.pdf) and [Part II](chap4b.pdf) <!-- and [Part III](chap4c.pdf) -->
 <br>
 **Readings:**
-Sect. 4.1–4.2 except 4.2.2
+Sect. 4.1–4.2 except 4.2.4
 <br>
 **Exercises:**
 4.2, 4.4, 4.5; exercises in class notes
@@ -125,27 +125,28 @@ Sect. 4.1–4.2 except 4.2.2
 #### Oct 5
 Midterm I
 
-<div style="color: #D3D3D3;">
 
 #### Oct 6 -- Oct 8
+More on the mutual exclusion problem.
+<br>
 Fairness assumptions: weak and strong fairness.
 Correctness under fairness assumptions.
 Asynchronous coordination protocols.
 Leader election. Reliable transmission.
 The alternating bit protocol.
 Wait-free consensus.
-Specifying liveness requirements.
-<br>
-Introduction to Linear Temporal Logic: syntax and semantics.
 
 **Notes:**
-The Asynchronous Model [Part III](chap4c.pdf),
-Liveness Requirements [Part I](chap5a.pdf)
+The Asynchronous Model [Part II](chap4b.pdf) and [Part III](chap4c.pdf)
 <br>
 **Readings:**
-Sect. 4.3 except proof of Theorem 4.1, Sect. 5.1
+Sect. 4.2-4.3 except proof of Theorem 4.1
+
+<div style="color: #D3D3D3;">
 
 #### Oct 13 -- Oct 15
+Specifying liveness requirements.
+Introduction to Linear Temporal Logic: syntax and semantics.
 Derived LTL operators.
 Specifying system requirements in LTL. Examples.
 LTL equivalences.
