@@ -133,8 +133,6 @@ Fairness assumptions: weak and strong fairness.
 Correctness under fairness assumptions.
 Asynchronous coordination protocols.
 Leader election. Reliable transmission.
-The alternating bit protocol.
-Wait-free consensus.
 
 **Notes:**
 The Asynchronous Model [Part II](chap4b.pdf) and [Part III](chap4c.pdf)
@@ -142,9 +140,12 @@ The Asynchronous Model [Part II](chap4b.pdf) and [Part III](chap4c.pdf)
 **Readings:**
 Sect. 4.2-4.3 except proof of Theorem 4.1
 
-<div style="color: #D3D3D3;">
 
 #### Oct 13 -- Oct 15
+More on asynchronous protocols.
+The alternating bit protocol.
+Wait-free consensus.
+<br>
 Specifying liveness requirements.
 Introduction to Linear Temporal Logic: syntax and semantics.
 Derived LTL operators.
@@ -152,17 +153,20 @@ Specifying system requirements in LTL. Examples.
 LTL equivalences.
 LTL specifications.
 Encoding fairness assumptions in LTL. Examples.
-Correspondence between LTL formulas and Büchi automata. Examples.
-Checking LTL properties of reactive systems by reduction to Büchi automata.
+<!-- Correspondence between LTL formulas and Büchi automata. Examples.
+Checking LTL properties of reactive systems by reduction to Büchi automata. -->
 
 **Notes:**
-Liveness Requirements [Part I](chap5a.pdf) and [Part II](chap5b.pdf)
+The Asynchronous Model [Part III](chap4c.pdf).
+Liveness Requirements [Part I](chap5a.pdf) <!-- and [Part II](chap5b.pdf) -->
 <br>
 **Readings:**
 Sect. 5.1–5.2.1; Sec 5.2.2, 5.2.4 (recommended)
 <br>
 **Exercises:**
 Exercises in class notes
+
+<div style="color: #D3D3D3;">
 
 #### Oct 20 -- Oct 22
 The timed model.
