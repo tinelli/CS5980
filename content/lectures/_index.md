@@ -153,12 +153,10 @@ Specifying system requirements in LTL. Examples.
 LTL equivalences.
 LTL specifications.
 Encoding fairness assumptions in LTL. Examples.
-<!-- Correspondence between LTL formulas and Büchi automata. Examples.
-Checking LTL properties of reactive systems by reduction to Büchi automata. -->
 
 **Notes:**
 The Asynchronous Model [Part III](chap4c.pdf).
-Liveness Requirements [Part I](chap5a.pdf) <!-- and [Part II](chap5b.pdf) -->
+Liveness Requirements [Part I](chap5a.pdf) and [Part II](chap5b.pdf)
 <br>
 **Readings:**
 Sect. 5.1–5.2.1; Sec 5.2.2, 5.2.4 (recommended)
@@ -169,6 +167,10 @@ Exercises in class notes
 <div style="color: #D3D3D3;">
 
 #### Oct 20 -- Oct 22
+
+Correspondence between LTL formulas and Büchi automata. Examples.
+Checking LTL properties of reactive systems by reduction to Büchi automata.
+<br>
 The timed model.
 Clocks.
 Motivation and examples.
