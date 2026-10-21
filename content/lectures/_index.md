@@ -149,28 +149,40 @@ Wait-free consensus.
 Specifying liveness requirements.
 Introduction to Linear Temporal Logic: syntax and semantics.
 Derived LTL operators.
+Specifying system requirements in LTL.
+
+**Notes:**
+The Asynchronous Model [Part III](chap4c.pdf).
+Liveness Requirements [Part I](chap5a.pdf)
+<br>
+**Readings:**
+Sect. 4.3 except proof of Theorem 4.1
+<br>
+**Exercises:**
+Exercises in class notes
+
+
+#### Oct 20 -- Oct 22
 Specifying system requirements in LTL. Examples.
 LTL equivalences.
 LTL specifications.
 Encoding fairness assumptions in LTL. Examples.
+Correspondence between LTL formulas and Büchi automata. Examples.
+Checking LTL properties of reactive systems by reduction to Büchi automata.
+<br>
 
 **Notes:**
-The Asynchronous Model [Part III](chap4c.pdf).
-Liveness Requirements [Part I](chap5a.pdf) and [Part II](chap5b.pdf)
+Liveness Requirements [Part I](chap5a.pdf) and [Part II](chap5b.pdf).
 <br>
 **Readings:**
-Sect. 5.1–5.2.1; Sec 5.2.2, 5.2.4 (recommended)
+Sect. 5.1-5.2 except 5.2.3 and 5.2.4.
 <br>
 **Exercises:**
 Exercises in class notes
 
 <div style="color: #D3D3D3;">
 
-#### Oct 20 -- Oct 22
-
-Correspondence between LTL formulas and Büchi automata. Examples.
-Checking LTL properties of reactive systems by reduction to Büchi automata.
-<br>
+#### Oct 27 -- Oct 29
 The timed model.
 Clocks.
 Motivation and examples.
@@ -183,12 +195,12 @@ Timed based protocols. Examples.
 Timed Model [Part I](chap7a.pdf) and [Part II](chap7b.pdf)
 <br>
 **Readings:**
-Sect. 7.1–2
+Sect 7.1
 <br>
 **Exercises:**
-Exercises in class notes; 7.1, 7.2
+7.1, 7.2
 
-#### Oct 27 -- Oct 29
+#### Nov 3 -- Nov 5
 Introduction to dynamical systems.
 General concepts and motivation.
 Feedback control loops.
@@ -196,25 +208,14 @@ Examples of continuous-time components.
 Brief recap of derivatives and differential equations.
 Continuous-time components: definition and examples.
 Sufficient conditions for the existence and uniqueness of executions.
-
-**Notes:**
-Dynamical Systems [Part I](chap6a.pdf)
-<br>
-**Readings:**
-Sect. 6.1
-<br>
-**Exercises:**
-6.1
-
-#### Nov 3 -- Nov 5
-More on dynamical systems.
+<!-- More on dynamical systems. -->
 The pendulum example.
 Equilibria and Stability. Lyapunov and input-output stability.
 Linear systems.
 Solving linear differential equations.
 
 **Notes:**
-Dynamical Systems [Part II](chap6b.pdf) and [Part III](chap6c.pdf)
+Dynamical Systems [Part I](chap6a.pdf), [Part II](chap6b.pdf) and [Part III](chap6c.pdf)
 <br>
 **Readings:**
 Sect. 6.1, 6.2,
