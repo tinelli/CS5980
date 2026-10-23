@@ -168,7 +168,6 @@ LTL equivalences.
 LTL specifications.
 Encoding fairness assumptions in LTL. Examples.
 Correspondence between LTL formulas and Büchi automata. Examples.
-Checking LTL properties of reactive systems by reduction to Büchi automata.
 <br>
 
 **Notes:**
@@ -180,9 +179,10 @@ Sect. 5.1-5.2 except 5.2.3 and 5.2.4.
 **Exercises:**
 Exercises in class notes
 
-<div style="color: #D3D3D3;">
-
 #### Oct 27 -- Oct 29
+Checking LTL properties of reactive systems by reduction to Büchi automata.
+<br>
+
 The timed model.
 Clocks.
 Motivation and examples.
@@ -192,13 +192,16 @@ Modeling imperfect clocks.
 Timed based protocols. Examples.
 
 **Notes:**
-Timed Model [Part I](chap7a.pdf) and [Part II](chap7b.pdf)
+Timed Model [slides](chap7.pdf)
 <br>
 **Readings:**
 Sect 7.1
 <br>
 **Exercises:**
 7.1, 7.2
+
+<div style="color: #D3D3D3;">
+
 
 #### Nov 3 -- Nov 5
 Introduction to dynamical systems.
