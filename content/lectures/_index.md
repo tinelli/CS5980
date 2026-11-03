@@ -200,7 +200,6 @@ Sect 7.1
 **Exercises:**
 7.1, 7.2
 
-<div style="color: #D3D3D3;">
 
 
 #### Nov 3 -- Nov 5
@@ -218,14 +217,16 @@ Linear systems.
 Solving linear differential equations.
 
 **Notes:**
-Dynamical Systems [Part I](chap6a.pdf), [Part II](chap6b.pdf) and [Part III](chap6c.pdf)
+Dynamical Systems [Part I](chap6a.pdf)<!-- , [Part II](chap6b.pdf) and [Part III](chap6c.pdf) -->
 <br>
 **Readings:**
 Sect. 6.1, 6.2,
-Chap. 2 of [Hefferon](http://joshua.smcvt.edu/linearalgebra/) (as needed)
+Chap. 2 of [Hefferon](https://hefferon.net/linearalgebra/) (as needed)
 <br>
 **Exercises:**
 6.1, 6.4, 6.6
+
+<div style="color: #D3D3D3;">
 
 #### Nov 10 -- Nov 12
 Designing controllers.
