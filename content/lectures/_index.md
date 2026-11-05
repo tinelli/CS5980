@@ -200,8 +200,6 @@ Sect 7.1
 **Exercises:**
 7.1, 7.2
 
-
-
 #### Nov 3 -- Nov 5
 Introduction to dynamical systems.
 General concepts and motivation.
@@ -217,7 +215,7 @@ Linear systems.
 Solving linear differential equations.
 
 **Notes:**
-Dynamical Systems [Part I](chap6a.pdf)<!-- , [Part II](chap6b.pdf) and [Part III](chap6c.pdf) -->
+Dynamical Systems [Part I](chap6a.pdf) and [Part II](chap6b.pdf)
 <br>
 **Readings:**
 Sect. 6.1, 6.2,
@@ -241,7 +239,7 @@ Executions and composition of hybrid processes.
 Zeno behavior. Examples.
 
 **Notes:**
-Dynamical Systems [Part IV](chap6d.pdf),
+Dynamical Systems [Part III](chap6c.pdf),
 Hybrid Systems [Part I](chap9a.pdf)
 <br>
 **Readings:**
