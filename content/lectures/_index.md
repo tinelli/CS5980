@@ -224,23 +224,19 @@ Chap. 2 of [Hefferon](https://hefferon.net/linearalgebra/) (as needed)
 **Exercises:**
 6.1, 6.4, 6.6
 
-<div style="color: #D3D3D3;">
-
 #### Nov 10 -- Nov 12
 Designing controllers.
 Open- and closed-loop controllers.
 Stabilizing controllers.
 Gain matrix and controllability for linear systems.
 PID controllers.
+<br>
 Introduction to hybrid systems.
 Hybrid dynamical models: motivation and examples.
 Formal definition of hybrid systems.
-Executions and composition of hybrid processes.
-Zeno behavior. Examples.
 
 **Notes:**
-Dynamical Systems [Part III](chap6c.pdf),
-Hybrid Systems [Part I](chap9a.pdf)
+Dynamical Systems [Part III](chap6c.pdf)<!--, Hybrid Systems [Part I](chap9a.pdf) -->
 <br>
 **Readings:**
 Sect. 6.3, 9.1
@@ -248,10 +244,14 @@ Sect. 6.3, 9.1
 **Exercises:**
 9.2
 
+<div style="color: #D3D3D3;">
+
 #### Nov 16
 Midterm II
 
 #### Nov 17 -- Nov 19
+Executions and composition of hybrid processes.
+Zeno behavior. Examples.
 Zeno executions, states and processes.
 Zeno processes and reachability.
 Stability of hybrid systems.
