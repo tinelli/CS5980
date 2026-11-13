@@ -28,17 +28,14 @@ covered in these sections of the textbook:
 
 It will contain a mix of true/false, multiple choice, short answer questions, and problems similar to those in exercises, homework assignments, and quizzes.
 
-
-
 ### Midterm II
 
-The midterm will focus 
-on material from the Oct 6 lecture through the Nov 12 lecture (both included)
+The midterm will focus on material from the Oct 6 lecture through the Nov 10 lecture (both included)
 <!-- ;
 specifically, it will focus the topics in Chapters 5,6, 7 and 9 of the textbook. -->
 
-The exam will assume knowledge of all the required reading material listed 
-in the [Lectures](../lectures) section as well as solutions 
+The exam will assume knowledge of all the required reading material listed
+in the [Lectures](../lectures) section as well as solutions
 to homework assignments and Midterm I.
 You can safely assume that there will be **no** questions
 on the material covered in these sections of the textbook:
@@ -46,8 +43,6 @@ on the material covered in these sections of the textbook:
 
 It will contain a mix of true/false, multiple choice, short answer questions, and problems similar to those in exercises, homework assignments, and quizzes.
 
-
 ### Final
 
 [TBA]
-

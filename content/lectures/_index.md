@@ -3,14 +3,15 @@ title: Lectures
 type: lectures
 ---
 
-This page gives highlights of past lectures and provides lecture notes, 
+This page gives highlights of past lectures and provides lecture notes,
 reading assignments, and exercises.
 **Greyed out text** (for future lectures) **is tentative and subject to change.**
 
-Chapters and sections in readings are from the textbook, and 
+Chapters and sections in readings are from the textbook, and
 so are the exercises.
 
 #### Aug 25 -- Aug 27
+
 Course introduction and administration.
 Introduction to Embedded Systems.
 The synchronous model of reactive computation.
@@ -25,8 +26,8 @@ The Synchronous Model [Part I](chap2a.pdf)
 Chap. 1,
 Sect. 2.1
 
-
 #### Sep 1 -- Sep 3
+
 The Synchronous Model.
 Reactive components and their properties.
 Deterministic vs. non-deterministic, combinational vs. stateful components.
@@ -46,6 +47,7 @@ Sect. 2.1 - 2.3
 2.1, 2.2, 2.4, 2.5, 2.7, 2.9, 2.12, 2.13
 
 #### Sep 8 -- Sep 10
+
 Designing synchronous systems.
 Bottom-up vs. top-down design.
 Synchronous networks.
@@ -65,8 +67,8 @@ Lustre [examples](examples.lus) seen in class
 **Exercises:**
 2.6, 2.15, 2.17, exercises in class notes
 
-
 #### Sep 15 -- Sep 17
+
 Specifying and analyzing composite systems in Kind 2.
 <br>
 Safety Requirements.
@@ -85,6 +87,7 @@ Lustre [examples](examples.lus) seen in class
 3.1, 3.6, 3.8; exercises in class notes
 
 #### Sep 22 -- Sep 24
+
 Verifying invariants.
 Inductive strengthening.
 Examples of inductive proofs.
@@ -101,6 +104,7 @@ Sect. 3.2; Sect. 3.4 (recommended)
 Exercises in class notes
 
 #### Sep 29 -- Oct 1
+
 More on complexity of automated invariant verification.
 <br>
 Introduction to the Asynchronous Model.
@@ -121,12 +125,12 @@ Sect. 4.1–4.2 except 4.2.4
 **Exercises:**
 4.2, 4.4, 4.5; exercises in class notes
 
-
 #### Oct 5
+
 Midterm I
 
-
 #### Oct 6 -- Oct 8
+
 More on the mutual exclusion problem.
 <br>
 Fairness assumptions: weak and strong fairness.
@@ -142,6 +146,7 @@ Sect. 4.2-4.3 except proof of Theorem 4.1
 
 
 #### Oct 13 -- Oct 15
+
 More on asynchronous protocols.
 The alternating bit protocol.
 Wait-free consensus.
@@ -161,8 +166,8 @@ Sect. 4.3 except proof of Theorem 4.1
 **Exercises:**
 Exercises in class notes
 
-
 #### Oct 20 -- Oct 22
+
 Specifying system requirements in LTL. Examples.
 LTL equivalences.
 LTL specifications.
@@ -180,6 +185,7 @@ Sect. 5.1-5.2 except 5.2.3 and 5.2.4.
 Exercises in class notes
 
 #### Oct 27 -- Oct 29
+
 Checking LTL properties of reactive systems by reduction to Büchi automata.
 <br>
 
@@ -201,6 +207,7 @@ Sect 7.1
 7.1, 7.2
 
 #### Nov 3 -- Nov 5
+
 Introduction to dynamical systems.
 General concepts and motivation.
 Feedback control loops.
@@ -225,6 +232,7 @@ Chap. 2 of [Hefferon](https://hefferon.net/linearalgebra/) (as needed)
 6.1, 6.4, 6.6
 
 #### Nov 10 -- Nov 12
+
 Designing controllers.
 Open- and closed-loop controllers.
 Stabilizing controllers.
@@ -236,7 +244,7 @@ Hybrid dynamical models: motivation and examples.
 Formal definition of hybrid systems.
 
 **Notes:**
-Dynamical Systems [Part III](chap6c.pdf)<!--, Hybrid Systems [Part I](chap9a.pdf) -->
+Dynamical Systems [Part III](chap6c.pdf), Hybrid Systems [Part I](chap9a.pdf)
 <br>
 **Readings:**
 Sect. 6.3, 9.1
@@ -244,12 +252,14 @@ Sect. 6.3, 9.1
 **Exercises:**
 9.2
 
-<div style="color: #D3D3D3;">
-
 #### Nov 16
+
 Midterm II
 
+<div style="color: #D3D3D3;">
+
 #### Nov 17 -- Nov 19
+
 Executions and composition of hybrid processes.
 Zeno behavior. Examples.
 Zeno executions, states and processes.
@@ -267,6 +277,7 @@ Sect. 9.1, 9.2
 9.5
 
 #### Nov 24 -- Nov 26
+
 No classes. Thanksgiving break.
 
 #### Dec 1 -- Dec 3
