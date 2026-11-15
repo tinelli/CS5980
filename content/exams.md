@@ -31,8 +31,9 @@ It will contain a mix of true/false, multiple choice, short answer questions, an
 ### Midterm II
 
 The midterm will focus on material covered in the lectures from **Oct 6 through Nov 10** (both included).
-<!-- ;
-specifically, it will focus the topics in Chapters 5,6, 7 and 9 of the textbook. -->
+It will be closed books, notes, laptops and other electronic devices.
+However, you are allowed to bring up to _2 pages_ (one sheet front and
+back) of notes.
 
 The exam will assume knowledge of all the required reading material listed
 in the [Lectures](../lectures) section as well as solutions
