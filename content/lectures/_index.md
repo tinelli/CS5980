@@ -256,8 +256,6 @@ Sect. 6.3, 9.1
 
 Midterm II
 
-<div style="color: #D3D3D3;">
-
 #### Nov 17 -- Nov 19
 
 Executions and composition of hybrid processes.
@@ -275,6 +273,8 @@ Sect. 9.1, 9.2
 <br>
 **Exercises:**
 9.5
+
+<div style="color: #D3D3D3;">
 
 #### Nov 24 -- Nov 26
 
