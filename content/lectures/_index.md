@@ -272,7 +272,7 @@ Hybrid Systems [Part I](chap9a.pdf) and [Part II](chap9b.pdf)
 Sect. 9.1, 9.2
 <br>
 **Exercises:**
-9.5
+9.5, 9.7
 
 <div style="color: #D3D3D3;">
 
